@@ -18,6 +18,7 @@ def put_map():
     print("Connected to cluster")
 
     my_map = client.get_map("users").blocking()
+    my_map.put_if_absent(1, 0)
     for i in range(10000):
         while True:
             value = my_map.get(1)
